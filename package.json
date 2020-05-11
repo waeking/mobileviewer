@@ -1,0 +1,24 @@
+{
+  "name": "mobileviewer",
+  "version": "1.0.1",
+  "description": "image preview in the mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mobile",
+    "viewer",
+    "previewImage"
+  ],
+  "author": "waeKing chen",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waeking/mobileviewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/waeking/mobileviewer/issues"
+  },
+  "homepage": "https://github.com/waeking/mobileviewer"
+}
