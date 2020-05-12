@@ -1,6 +1,6 @@
 /*!
- * mobileview.js v1.0.0
- * https://github.com/waeking/mobileview
+ * mobileviewer.js v1.0.2
+ * https://github.com/waeking/mobileviewer
  *
  * Copyright 2015-present waeKing Chen
  * Released under the MIT license
@@ -12,7 +12,7 @@
       ? (module.exports = factory())
       : typeof define === "function" && define.amd
       ? define(factory)
-      : (global.mobileview = factory());
+      : (global.mobileviewer = factory());
   })(this, function () {
     "use strict";
     var toString = Object.prototype.toString;
@@ -74,7 +74,7 @@
         }
         return obj;
       };
-    function MobileView(el) {
+    function MobileViewer(el) {
       this.oBody = document.getElementsByTagName("body")[0];
       this.options = arguments[1] ? arguments[1] : {};
       this.index = 0;
@@ -106,7 +106,7 @@
         this.getImgList();
       }
     }
-    MobileView.prototype.getImgList = function () {
+    MobileViewer.prototype.getImgList = function () {
       var _this = this;
       toArray(this.element).forEach(function (item) {
         if (
@@ -121,7 +121,7 @@
         : 0;
       this.generateImg();
     };
-    MobileView.prototype.generateImg = function () {
+    MobileViewer.prototype.generateImg = function () {
       var _this = this;
       this.oDiv = createElement("div", {
         className: "mobile-view-wrap",
@@ -170,7 +170,7 @@
       this.oBody.appendChild(this.oDiv);
       this.eventListener();
     };
-    MobileView.prototype.slideImage = function () {
+    MobileViewer.prototype.slideImage = function () {
       var _this = this;
       if (_this.index > _this.imgList.length - 1) {
         _this.index = _this.imgList.length - 1;
@@ -191,7 +191,7 @@
         });
       });
     };
-    MobileView.prototype.showMessage = function (msg, obj) {
+    MobileViewer.prototype.showMessage = function (msg, obj) {
       var _this = this;
       if (!_this.isShowMessage) return;
       var oSpan = createElement("span", {
@@ -218,7 +218,7 @@
         _this.oBody.removeChild(oSpan);
       }, 800);
     };
-    MobileView.prototype.eventListener = function () {
+    MobileViewer.prototype.eventListener = function () {
       var _this = this;
       var startX = 0;
       var startY = 0;
@@ -262,7 +262,7 @@
       this.oDiv.addEventListener("touchmove", touchmove, false);
       this.oDiv.addEventListener("touchend", touchend, false);
     };
-    MobileView.prototype.destroy = function () {
+    MobileViewer.prototype.destroy = function () {
       var _this = this;
       setTimeout(function () {
         _this.oBody.removeChild(_this.oDiv);
@@ -276,10 +276,10 @@
     };
     return {
       previewImage: function (obj) {
-        new MobileView(obj);
+        new MobileViewer(obj);
       },
       init: function (element) {
-        new MobileView(element);
+        new MobileViewer(element);
       },
     };
   });
